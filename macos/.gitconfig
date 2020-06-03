@@ -1,0 +1,17 @@
+[alias]
+	branches = branch -a
+	stashes = stash list
+	remotes = remote -v
+	uncommit = reset --mixed HEAD~
+	amend = commit -a --amend
+	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Cresetï %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	remove = rm -r --cached
+	overview = log --all --since='2 weeks' --oneline --no-merges
+	today = log --since=00:00:00 --all --no-merges --oneline
+	oops = reset HEAD^
+#[core]
+#	excludesfile = /Users/xxx/.gitignore_global
+#[user]
+#	name = xxx
+#	email = xxx
