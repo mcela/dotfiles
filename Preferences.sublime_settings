@@ -1,0 +1,39 @@
+{
+	"animation_enabled": false,
+	"color_scheme": "Packages/zenburn/zenburn.tmTheme",
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace"
+	],
+	"font_size": 10,
+	"gutter": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_numbers": false,
+	"margin": 4,
+	"tab_size": 4,
+	"theme": "Adaptive.sublime-theme",
+	"tree_animation_enabled": false,
+	"draw_white_space": "all"
+}
+
