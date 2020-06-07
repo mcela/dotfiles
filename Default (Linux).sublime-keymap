@@ -1,0 +1,8 @@
+[
+	{ "keys": ["ctrl+k", "ctrl+b"], "command": "toggle_side_bar" },
+	{ "keys": ["ctrl+k", "ctrl+z"], "command": "toggle_tabs" },
+	{ "keys": ["ctrl+k", "ctrl+x"], "command": "toggle_menu" },
+	{ "keys": ["ctrl+k", "ctrl+m"], "command": "toggle_minimap" },
+	{ "keys": ["ctrl+k", "ctrl+c"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+]
+
