@@ -1,0 +1,7 @@
+# save this file to ~/Library/KeyBindings/DefaultKeyBinding.dict
+# in finnish keyboard, there's a useless-waste-of-space key 'å', which I've switched to create {}, which makes programming nice.
+{
+	"å" = (insertText:, "{");
+	"Å" = (insertText:, "}");
+}
+
