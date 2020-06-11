@@ -1,0 +1,14 @@
+[
+	// CMD + hjkl 
+	{ "keys": ["super+l"], "command": "move", "args": {"by": "characters", "forward": true } },
+	{ "keys": ["super+h"], "command": "move", "args": {"by": "characters", "forward": false } },
+	{ "keys": ["super+k"], "command": "move", "args": {"by": "lines", "forward": false } },
+	{ "keys": ["super+j"], "command": "move", "args": {"by": "lines", "forward": true } },
+
+	{ "keys": ["super+shift+h"], "command": "move", "args": {"by": "subwords", "forward": false } },
+	{ "keys": ["super+shift+l"], "command": "move", "args": {"by": "subwords", "forward": true } },
+	{ "keys": ["super+k", "super+b"], "command": "toggle_side_bar" },
+	{ "keys": ["super+k", "super+z"], "command": "toggle_tabs" },
+	{ "keys": ["super+k", "super+m"], "command": "toggle_minimap" }
+]
+
