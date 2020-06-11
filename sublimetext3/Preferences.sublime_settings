@@ -34,6 +34,8 @@
 	"tab_size": 4,
 	"theme": "Adaptive.sublime-theme",
 	"tree_animation_enabled": false,
-	"draw_white_space": "all"
+	"draw_white_space": "all",
+	"always_show_minimap_viewport": false,
+	"scroll_past_end": true
 }
 
