@@ -35,6 +35,7 @@
 	"theme": "Adaptive.sublime-theme",
 	"tree_animation_enabled": false,
 	"draw_white_space": "all",
+	"show_full_path": true,
 	"always_show_minimap_viewport": false,
 	"scroll_past_end": true
 }
