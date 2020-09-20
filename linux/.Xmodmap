@@ -1,0 +1,13 @@
+! -*- coding: utf-8 -*-
+
+! after changing, run: $ xmodmap ~/.Xmodmap
+! to list all keycodes, run: $ xmodmap -pke
+! might need this, dunno, left for reference:
+! into file "~/.xinitrc": "[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap"
+
+! line format: 
+! key shift+key mode_switch+key mode_switch+Shift+key Altgraph+key AltGraph+Shift+key
+
+! "å" -> "{" and "Å" -> "}"
+! keycode 34 = aring Aring bracketleft braceleft dead_doubleacute dead_abovering
+keycode 34 = braceleft braceright bracketleft braceleft dead_doubleacute dead_abovering
