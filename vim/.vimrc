@@ -32,6 +32,16 @@ set autoindent "copy indent from prev line
 "line: 0 + (to line 5: 5G/5gg)
 "buffer: gg G
 
+" multiselect stuff https://github.com/mg979/vim-visual-multi
+"select word: c-n
+"create cursors: c-up/down
+"select char: shift+arrows
+"move bw occurrences: n/N
+"select cursor: [/]
+"skip current, get next: q
+"remove: Q
+"start insert mode: i/a/I/A
+
 " command mode
 "undo: u
 "redo: CTRL+r
@@ -46,6 +56,7 @@ set autoindent "copy indent from prev line
 "repeat macro: @a
 "repeat macro 100 times: 100@a
 "repeat search n
+"toggle upper/lowercase: ~
 
 " file tree https://shapeshed.com/vim-netrw/, http://vimcasts.org/episodes/the-file-explorer/
 "open: :Explore/:E (:Vexplore/:Vex vertical split; :Sexplore/:Sex horiz split )
@@ -67,7 +78,7 @@ let g:netrw_winsize = 25 "width
 "augroup END
 
 " buffers
-":bd/bdelete :bw/bwipe
+"close :bd/bdelete :bw/bwipe
 "c-6 prev buffer
 
 " visual mode: v (paint/copy/paste text)
@@ -75,14 +86,30 @@ let g:netrw_winsize = 25 "width
 "copy: y
 "paste: p
 
-"toggle upper/lowercase with §
-map § ~
+map å {
+map Å }
+inoremap å {
+inoremap Å }
+map ä (
+map Ä )
+inoremap ä (
+inoremap Ä )
+map ö [
+map Ö ]
+inoremap ö [
+inoremap Ö ]
 
-"to end of line with +
+map = \
+
+"buffer navigation with öä
+"map <leader>ö :bnext<cr>
+"map <leader>ä :bprev<cr>
+
+"goto end of line
 map + $
-
 "search with <space> (repeat with n)
 map <space> /
+map § ^
 
 "switch between windows with Ctrl+hjkl
 map <C-j> <C-W>j
@@ -90,25 +117,52 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l 
 
-"disable arrow keyz
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
-"buffer navigation with öä
-map <leader>ö :bNext<cr>
-map <leader>ä :bprev<cr>
-
 "toggle paste mode with pp
 map <leader>pp :setlocal paste!<cr> 
 
-map å ^
 
-"replace insert mode characters
-inoremap å {
-inoremap Å }
+
+" plugins https://github.com/junegunn/vim-plug/wiki
+"install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+	"https://github.com/mg979/vim-visual-multi
+	Plug 'mg979/vim-visual-multi', {'branch': 'master'} 
+
+call plug#end()
+
+
+"run PlugInstall if there are missing plugins
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+
+
+" random notes
+"nmap, nnoremap, nunmap  -  Normal mode
+"imap, inoremap, iunmap  -  Insert and Replace mode
+"vmap, vnoremap, vunmap  -  Visual and Select mode
+"xmap, xnoremap, xunmap  -  Visual mode
+"smap, snoremap, sunmap  -  Select mode
+"cmap, cnoremap, cunmap  -  Command-line mode
+"omap, onoremap, ounmap  -  Operator pending mode
+
+
+
+
+" vim-org-mode
+"toggle heading: zo/zc
+"new heading: =hN/hn
+"mark done: =cc
+"jump to list item: 
+"https://github.com/jceb/vim-orgmode
+"Plug 'jceb/vim-orgmode'
+"Plug 'tpope/vim-speeddating' "increment dates with c-a/x
