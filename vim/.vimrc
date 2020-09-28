@@ -3,8 +3,20 @@
 "https://stackoverflow.com/questions/4392705/programmers-vim-setup-for-finnish-swedish-or-other-non-us-keyboard-layout
 "http://skrolli.fi/2015.3.botti.pdf (has an article in finnish)
 
+set encoding=utf-8
 syntax enable
 set number "show line numbers
+colors zenicolas
+
+"show whitespace ·┊
+"eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
+set listchars=tab:┊\ 
+set list
+
+set tabstop=3 "tab width
+set softtabstop=0 noexpandtab "use tabs no spaces
+set autoindent "copy indent from prev line
+"set shiftwidth=4  "indent width
 
 "open file at line 32: vim +32 file.c
 "open file at string xyz: vim +/xyz file.c
@@ -12,7 +24,7 @@ set number "show line numbers
 "reload file: :e  (add ! if file edited)
 "search/replace: :s/hello/bye (confirm, add /c, also /g??, whole file :%s/huono/hyvä/g)
 
-"movement
+" movement
 "character: h j k l
 "word: w b
 "sentence: ( )
@@ -20,7 +32,7 @@ set number "show line numbers
 "line: 0 + (to line 5: 5G/5gg)
 "buffer: gg G
 
-"command mode
+" command mode
 "undo: u
 "redo: CTRL+r
 "remove current character: x
@@ -33,8 +45,32 @@ set number "show line numbers
 "start recording macro: q + register where to save it, then macro, end recording with q
 "repeat macro: @a
 "repeat macro 100 times: 100@a
+"repeat search n
 
-"visual mode: v (paint/copy/paste text)
+" file tree https://shapeshed.com/vim-netrw/, http://vimcasts.org/episodes/the-file-explorer/
+"open: :Explore/:E (:Vexplore/:Vex vertical split; :Sexplore/:Sex horiz split )
+"toggle views: i
+"toggle banner I
+"toggle sort s
+"go up dir: -
+"create new file %
+"create new dir d
+"delete file/dir: D
+"rename file/dir: R
+let g:netrw_liststyle = 3 "default list style
+let g:netrw_banner = 0 "disable banner by default
+let g:netrw_browse_split = 4 "open files in a new horizontal split
+let g:netrw_winsize = 25 "width
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Sex
+"augroup END
+
+" buffers
+":bd/bdelete :bw/bwipe
+"c-6 prev buffer
+
+" visual mode: v (paint/copy/paste text)
 "cut/remove: d
 "copy: y
 "paste: p
@@ -45,7 +81,7 @@ map § ~
 "to end of line with +
 map + $
 
-"search with <space>
+"search with <space> (repeat with n)
 map <space> /
 
 "switch between windows with Ctrl+hjkl

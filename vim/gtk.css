@@ -1,0 +1,5 @@
+/* fix shitty white borders with the gvim GTK3 window. put this at ".config/gtk-3.0/gtk.css". (wtf lol? software is shit.) */
+
+#vim-main-window {
+  background-color: #3f3f3f;
+}
