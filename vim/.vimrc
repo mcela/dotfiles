@@ -3,10 +3,27 @@
 "https://stackoverflow.com/questions/4392705/programmers-vim-setup-for-finnish-swedish-or-other-non-us-keyboard-layout
 "http://skrolli.fi/2015.3.botti.pdf (has an article in finnish)
 
+" vim action: verb + noun (eg. d w / delete word, 2j 
+"operator (d/c/v/...) + motion () + text objects (w/j/)
+"repeat cmd .
+"indent <  > 
+"change: c
+
+" text
+"i/inner + w/word  "/quotes  p/paragraph
+"as = a sentence
+"s - surrounding
+
+"siw( = surround inner word w/ ( )
+"di{ = delete inside brackets
+
+set nocompatible
 set encoding=utf-8
 syntax enable
 set number "show line numbers
+set relativenumber
 colors zenicolas
+filetype plugin on
 
 "show whitespace ·┊
 "eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
@@ -70,13 +87,22 @@ set autoindent "copy indent from prev line
 "rename file/dir: R
 let g:netrw_liststyle = 3 "default list style
 let g:netrw_banner = 0 "disable banner by default
-let g:netrw_browse_split = 4 "open files in a new horizontal split
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
 let g:netrw_winsize = 25 "width
 "augroup ProjectDrawer
 "  autocmd!
 "  autocmd VimEnter * :Sex
 "augroup END
+"see current path: set path?
+"jump to file: :find filename.c, can search with "*.c" also
 set wildmenu
+set path+=**
+"set wildignore += **/folder/** 
+
+"read some file template and move cursor
+"nnoremap ,abeon :-1read $HOME/.vim/.abeon.h<CR>3jwf>a
+
 
 " tabs>windows>buffers
 " windows
