@@ -68,8 +68,9 @@ hi Structure       guifg=#efefaf gui=bold                     ctermfg=229 cterm=
 hi Tag             guifg=#e89393 gui=bold                     ctermfg=181 cterm=bold
 hi Title           guifg=#efefef gui=bold                     ctermfg=255 ctermbg=NONE cterm=bold
 hi Todo            guifg=#dfdfdf guibg=NONE    gui=bold       ctermfg=254 ctermbg=NONE cterm=bold
-hi Typedef         guifg=#dfe4cf gui=bold                     ctermfg=253 cterm=bold
-hi Type            guifg=#dfdfbf gui=bold                     ctermfg=187 cterm=bold
+hi Typedef         guifg=#f0f0f0 gui=bold                     ctermfg=253 cterm=bold
+hi Type            guifg=#f0f0f0 gui=bold                     ctermfg=187 cterm=bold
+"hi Type            guifg=#dfdfbf gui=bold                     ctermfg=187 cterm=bold
 hi Underlined      guifg=#dcdccc gui=underline                ctermfg=188 cterm=underline
 hi VertSplit       guifg=#2e3330 guibg=#688060                ctermfg=236 ctermbg=65
 hi VisualNOS       guifg=#333333 guibg=#f18c96 gui=bold,underline ctermfg=236 ctermbg=210 cterm=bold

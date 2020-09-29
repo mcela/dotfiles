@@ -76,9 +76,15 @@ let g:netrw_winsize = 25 "width
 "  autocmd!
 "  autocmd VimEnter * :Sex
 "augroup END
+set wildmenu
 
+" tabs>windows>buffers
+" windows
+"open new: :vnew 
 " buffers
-"close :bd/bdelete :bw/bwipe
+"list: :ls
+"open Nth: :b Nth / :bn(ext) / :bp(revious)
+"close: :bd/bdelete :bw/bwipe, :xxx,yyybdelete
 "c-6 prev buffer
 
 " visual mode: v (paint/copy/paste text)
