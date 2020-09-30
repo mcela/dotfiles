@@ -8,6 +8,7 @@
 "repeat cmd .
 "indent <  > 
 "change: c
+"A - start inserting eol
 
 " text
 "i/inner + w/word  "/quotes  p/paragraph
@@ -30,7 +31,7 @@ filetype plugin on
 set listchars=tab:┊\ 
 set list
 
-set tabstop=3 "tab width
+set tabstop=2 "tab width
 set softtabstop=0 noexpandtab "use tabs no spaces
 set autoindent "copy indent from prev line
 "set shiftwidth=4  "indent width
@@ -99,6 +100,17 @@ let g:netrw_winsize = 25 "width
 set wildmenu
 set path+=**
 "set wildignore += **/folder/** 
+"open file to tab: :tabfind **/header.h
+"open files to right
+set splitbelow
+set splitright
+
+
+"disable macos bell shit
+set noerrorbells 
+set novisualbell
+set t_vb=
+autocmd! GUIEnter * set vb t_vb=
 
 "read some file template and move cursor
 "nnoremap ,abeon :-1read $HOME/.vim/.abeon.h<CR>3jwf>a
@@ -112,6 +124,8 @@ set path+=**
 "open Nth: :b Nth / :bn(ext) / :bp(revious)
 "close: :bd/bdelete :bw/bwipe, :xxx,yyybdelete
 "c-6 prev buffer
+"check buffer id: 2c-g
+":bd2 (del buffer #2)
 
 " visual mode: v (paint/copy/paste text)
 "cut/remove: d
@@ -198,3 +212,78 @@ endif
 "https://github.com/jceb/vim-orgmode
 "Plug 'jceb/vim-orgmode'
 "Plug 'tpope/vim-speeddating' "increment dates with c-a/x
+
+"here is a more exotic version of my original Kwbd script
+"delete the buffer; keep windows; create a scratch buffer if no buffers left
+function s:Kwbd(kwbdStage)
+  if(a:kwbdStage == 1)
+    if(&modified)
+      let answer = confirm("This buffer has been modified.  Are you sure you want to delete it?", "&Yes\n&No", 2)
+      if(answer != 1)
+        return
+      endif
+    endif
+    if(!buflisted(winbufnr(0)))
+      bd!
+      return
+    endif
+    let s:kwbdBufNum = bufnr("%")
+    let s:kwbdWinNum = winnr()
+    windo call s:Kwbd(2)
+    execute s:kwbdWinNum . 'wincmd w'
+    let s:buflistedLeft = 0
+    let s:bufFinalJump = 0
+    let l:nBufs = bufnr("$")
+    let l:i = 1
+    while(l:i <= l:nBufs)
+      if(l:i != s:kwbdBufNum)
+        if(buflisted(l:i))
+          let s:buflistedLeft = s:buflistedLeft + 1
+        else
+          if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
+            let s:bufFinalJump = l:i
+          endif
+        endif
+      endif
+      let l:i = l:i + 1
+    endwhile
+    if(!s:buflistedLeft)
+      if(s:bufFinalJump)
+        windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
+      else
+        enew
+        let l:newBuf = bufnr("%")
+        windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
+      endif
+      execute s:kwbdWinNum . 'wincmd w'
+    endif
+    if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
+      execute "bd! " . s:kwbdBufNum
+    endif
+    if(!s:buflistedLeft)
+      set buflisted
+      set bufhidden=delete
+      set buftype=
+      setlocal noswapfile
+    endif
+  else
+    if(bufnr("%") == s:kwbdBufNum)
+      let prevbufvar = bufnr("#")
+      if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
+        b #
+      else
+        bn
+      endif
+    endif
+  endif
+endfunction
+
+command! Kwbd call s:Kwbd(1)
+nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
+
+" Create a mapping (e.g. in your .vimrc) like this:
+nmap <C-W>! <Plug>Kwbd
+
+
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
