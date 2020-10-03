@@ -3,6 +3,8 @@
 "https://stackoverflow.com/questions/4392705/programmers-vim-setup-for-finnish-swedish-or-other-non-us-keyboard-layout
 "http://skrolli.fi/2015.3.botti.pdf (has an article in finnish)
 
+"[count][operator][text object/motion]
+
 " vim action: verb + noun (eg. d w / delete word, 2j 
 "operator (d/c/v/...) + motion () + text objects (w/j/)
 "repeat cmd .
@@ -20,11 +22,32 @@
 
 set nocompatible
 set encoding=utf-8
-syntax enable
 set number "show line numbers
 set relativenumber
 colors zenicolas
 filetype plugin on
+syntax enable
+
+"can also tags+=/path/
+set tags=./tags;
+
+" alt-right/left or h/l to navigate tags stack
+"nnoremapmap <M-Left> <C-T>
+"nnoremapmap <M-Right> <C-]>
+nnoremap <M-h> <C-T>
+nnoremap <M-l> <C-]>
+
+" navigation
+"cycle through :jumps c-O c-I
+"cycle through :changes g; g,
+"zz zb
+"goto definition: gd
+" marks
+"set mark m{a-zA-Z}
+"list marks :marks
+
+"hover over filename, hit gf to open in split view
+nnoremap gf :vertical wincmd f<CR>
 
 "show whitespace ·┊
 "eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
@@ -43,6 +66,7 @@ set smartindent
 "exit without save: :q!
 "reload file: :e  (add ! if file edited)
 "search/replace: :s/hello/bye (confirm, add /c, also /g??, whole file :%s/huono/hyvä/g)
+"system clipboard copy paste: \"*yy \"+yy and for paste too
 
 " movement
 "character: h j k l
@@ -107,7 +131,8 @@ set path+=~/rad/
 "open files to right
 set splitbelow
 set splitright
-
+"open fuzzy file searcher :FZF or c-space
+map <c-space> :FZF<CR>
 
 "disable macos bell shit
 set noerrorbells 
@@ -148,8 +173,6 @@ map Ö ]
 inoremap ö [
 inoremap Ö ]
 
-map = \
-
 "buffer navigation with öä
 "map <leader>ö :bnext<cr>
 "map <leader>ä :bprev<cr>
@@ -183,6 +206,9 @@ call plug#begin('~/.vim/plugged')
 
 	"https://github.com/mg979/vim-visual-multi
 	Plug 'mg979/vim-visual-multi', {'branch': 'master'} 
+
+	"https://github.com/junegunn/fzf
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 

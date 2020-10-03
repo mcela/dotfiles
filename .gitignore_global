@@ -6,6 +6,10 @@
 ehthumbs.db
 Thumbs.db
 
+# vim shit
+*.netrwhist
+*.swp
+tags
 
 #*.com
 #*.class

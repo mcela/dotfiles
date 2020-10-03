@@ -1,4 +1,6 @@
 export TERM=xterm-color
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 LD_LIBRARY_PATH=/usr/local/lib/:
 export LD_LIBRARY_PATH
