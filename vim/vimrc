@@ -28,9 +28,10 @@ colors zenicolas
 filetype plugin on
 syntax enable
 
+" tags
+"goto def alt+h or l
 "can also tags+=/path/
 set tags=./tags;
-
 " alt-right/left or h/l to navigate tags stack
 "nnoremapmap <M-Left> <C-T>
 "nnoremapmap <M-Right> <C-]>
