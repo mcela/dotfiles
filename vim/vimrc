@@ -32,9 +32,11 @@ set listchars=tab:┊\
 set list
 
 set tabstop=2 "tab width
+set shiftwidth=0
 set softtabstop=0 noexpandtab "use tabs no spaces
 set autoindent "copy indent from prev line
-"set shiftwidth=4  "indent width
+set smartindent
+
 
 "open file at line 32: vim +32 file.c
 "open file at string xyz: vim +/xyz file.c
@@ -99,6 +101,7 @@ let g:netrw_winsize = 25 "width
 "jump to file: :find filename.c, can search with "*.c" also
 set wildmenu
 set path+=**
+set path+=~/rad/
 "set wildignore += **/folder/** 
 "open file to tab: :tabfind **/header.h
 "open files to right
