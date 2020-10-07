@@ -133,7 +133,7 @@ set path+=~/rad/
 set splitbelow
 set splitright
 "open fuzzy file searcher :FZF or c-space
-map <c-space> :FZF<CR>
+nnoremap <S-space> :FZF<CR>
 
 "disable macos bell shit
 set noerrorbells 
