@@ -165,6 +165,12 @@ autocmd! GUIEnter * set vb t_vb=
 let mapleader = ","
 nnoremap <Leader><space> :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+"remap accindental uppercase letters, eq :W -> :w
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 map å {
 map Å }
 inoremap å {
