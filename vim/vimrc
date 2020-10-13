@@ -27,7 +27,7 @@ set relativenumber
 colors zenicolas
 filetype plugin on
 syntax enable
-
+set autoread " automatically read file-changes from disk.
 " tags
 "goto def alt+h or l
 "can also tags+=/path/
@@ -203,7 +203,7 @@ map <C-l> <C-W>l
 "toggle paste mode with pp
 map <leader>pp :setlocal paste!<cr> 
 
-
+source ~/.vimlocal/vimrc
 
 " plugins https://github.com/junegunn/vim-plug/wiki
 "install vim-plug if not found
