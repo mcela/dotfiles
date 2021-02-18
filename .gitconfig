@@ -10,6 +10,7 @@
 	overview = log --all --since='2 weeks' --oneline --no-merges
 	today = log --since=00:00:00 --all --no-merges --oneline
 	oops = reset HEAD^
+	stats = shortlog -ns
 #[core]
 #	excludesfile = /Users/xxx/.gitignore_global
 #[user]
