@@ -3,6 +3,7 @@
 	stashes = stash list
 	remotes = remote -v
 	uncommit = reset --mixed HEAD~
+	unstage = restore --staged
 	amend = commit -a --amend
 	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Cresetï %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 	nevermind = !git reset --hard HEAD && git clean -d -f
