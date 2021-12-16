@@ -1,17 +1,23 @@
 [alias]
-	branches = branch -a
-	stashes = stash list
-	remotes = remote -v
-	uncommit = reset --mixed HEAD~
-	unstage = restore --staged
 	amend = commit -a --amend
+	branches = branch -a
 	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Cresetï %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 	nevermind = !git reset --hard HEAD && git clean -d -f
-	remove = rm -r --cached
-	overview = log --all --since='2 weeks' --oneline --no-merges
-	today = log --since=00:00:00 --all --no-merges --oneline
 	oops = reset HEAD^
+	overview = log --all --since='2 weeks' --oneline --no-merges
+	remotes = remote -v
+	remove = rm -r --cached
 	stats = shortlog -ns
+	stashes = stash list
+	stashedfiles = stash show -p stash@{0} --name-only
+	stashedcodes = stash show -p
+	stashedcode = diff stash@{0}^! --
+	today = log --since=00:00:00 --all --no-merges --oneline
+	uncommit = reset --mixed HEAD~
+	unstage = restore --staged
+	unstash = checkout stash@{0}
+[pull]
+	rebase = true
 #[core]
 #	excludesfile = /Users/xxx/.gitignore_global
 #[user]
