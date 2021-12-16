@@ -1,9 +1,10 @@
 I wanted to get syntax hilighting for my own basic types such as u32, u64, etc, and this is how you do it.
 
-1. Install the PackageResourceViewer -package and open the C.sublime-syntax -file with it (using Tools > Command palette).
-2. Edit the "basic_types" -variable for example.
-3. ???
-4. Enjoy easy livin
+1. Install the PackageResourceViewer -package
+2. Tools > Command palette > C++ > C
+3. Edit the "basic_types" -variable for example.
+4. ???
+5. Enjoy easy livin
 
 This works automagically for C++ aswell.
 
