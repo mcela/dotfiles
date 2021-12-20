@@ -1,4 +1,7 @@
-# M1 setup shit
+# 
+Save `DefaultKeyBinding.dict` to `~/Library/KeyBindings/DefaultKeyBinding.dict`. (In finnish keyboard, there's a useless-waste-of-space key `å`, which I've switched to create `{}`, which makes programming nice.)
+
+## M1 setup shit
 
 https://www.wisdomgeek.com/development/installing-intel-based-packages-using-homebrew-on-the-m1-mac/
 
